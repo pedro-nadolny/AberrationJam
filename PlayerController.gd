@@ -4,15 +4,14 @@ const gravity = 1500
 const max_horizontal_acc = 1000
 const horizontal_dumping = 300
 const min_speed = 10
-const jump_force = 550
+const jump_force = 600
 
 var max_jumps = 2
 var jumps_available = 0
 
-var max_dashes = 1
-var dashes_available = 0
-var dash_timer = 0
-var dash_force = 800
+var dash_cooldown = 0
+var dash_float = 0
+var dash_force = 650
 var last_input_sign = 1
 
 func _physics_process(delta):
@@ -29,7 +28,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func apply_gravity(delta):
-	if is_on_floor():
+	if is_on_floor() or dash_float < 0:
 		return
 	
 	velocity.y += gravity * delta
@@ -60,16 +59,15 @@ func jump_input(delta):
 	velocity.y = -jump_force
 	print_debug("jump")
 	
-func dash_input(delta, input):
-	if is_on_floor():
-		dashes_available = max_dashes
+func dash_input(delta, input):	
+	dash_cooldown = min(0, dash_cooldown + delta)
+	dash_float = min(0, dash_float + delta)
 	
-	dash_timer = min(0, dash_timer + delta)
-	
-	if not Input.is_action_just_pressed("dash") or dashes_available < 1 or dash_timer < 0:
+	if not Input.is_action_just_pressed("dash") or dash_cooldown < 0:
 		return
 		
-	dashes_available -= 1
-	dash_timer = -0.5
+	dash_float = -0.25
+	dash_cooldown = -0.5
 	velocity.x += last_input_sign * dash_force
+	velocity.y = 0
 	print_debug("dash")

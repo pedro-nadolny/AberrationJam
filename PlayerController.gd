@@ -11,7 +11,7 @@ var jumps_available = 0
 
 var dash_cooldown = 0
 var dash_float = 0
-var dash_force = 650
+var dash_force = 700
 var last_input_sign = 1
 
 
@@ -49,8 +49,8 @@ func horizontal_input(delta, input):
 	if abs(velocity.x) < 5:
 		velocity.x = 0
 	
-	$Mesh.scale.x = move_toward($Mesh.scale.x, 1, delta * 10)
-	$Mesh.scale.y = move_toward($Mesh.scale.y, 1, delta * 10)
+	$Mesh.scale.x = move_toward($Mesh.scale.x, 1, delta * 5)
+	$Mesh.scale.y = move_toward($Mesh.scale.y, 1, delta * 5)
 	$Mesh.position.x = move_toward($Mesh.position.x, 0, delta * 50)
 	$Mesh.position.y = move_toward($Mesh.position.y, 0, delta * 50)
 	
@@ -79,4 +79,4 @@ func dash_input(delta, input):
 	velocity.x += last_input_sign * dash_force
 	velocity.y = 0
 	$Mesh.scale = Vector2(1.7, 0.4)
-	$Mesh.position = Vector2(30, 8)
+	$Mesh.position = Vector2(30, 4)

@@ -14,7 +14,6 @@ var dash_float = 0
 var dash_force = 650
 var last_input_sign = 1
 
-var dv = Vector2.ZERO
 
 func _physics_process(delta):
 	var input = Input.get_axis("move_left", "move_right")
@@ -50,8 +49,10 @@ func horizontal_input(delta, input):
 	if abs(velocity.x) < 5:
 		velocity.x = 0
 	
-	$Mesh.scale.x = move_toward($Mesh.scale.x, 1.0, delta)
-	$Mesh.scale.y = move_toward($Mesh.scale.y, 1.0, delta)
+	$Mesh.scale.x = move_toward($Mesh.scale.x, 1, delta * 10)
+	$Mesh.scale.y = move_toward($Mesh.scale.y, 1, delta * 10)
+	$Mesh.position.x = move_toward($Mesh.position.x, 0, delta * 50)
+	$Mesh.position.y = move_toward($Mesh.position.y, 0, delta * 50)
 	
 	
 func jump_input(delta):
@@ -64,6 +65,7 @@ func jump_input(delta):
 	jumps_available -= 1
 	velocity.y = -jump_force
 	$Mesh.scale = Vector2(0.7, 1.3)
+	$Mesh.position = Vector2(0, -15)
 	
 func dash_input(delta, input):	
 	dash_cooldown = min(0, dash_cooldown + delta)
@@ -76,4 +78,5 @@ func dash_input(delta, input):
 	dash_cooldown = -0.5
 	velocity.x += last_input_sign * dash_force
 	velocity.y = 0
-	$Mesh.scale = Vector2(1.3, 0.7)
+	$Mesh.scale = Vector2(1.7, 0.4)
+	$Mesh.position = Vector2(30, 8)

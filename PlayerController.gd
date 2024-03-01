@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const gravity = 1500
 const max_horizontal_acc = 1000
-const horizontal_dumping = 300
+const horizontal_dumping = 1.5
 const min_speed = 10
 const jump_force = 600
 
@@ -13,6 +13,8 @@ var dash_cooldown = 0
 var dash_float = 0
 var dash_force = 650
 var last_input_sign = 1
+
+var dv = Vector2.ZERO
 
 func _physics_process(delta):
 	var input = Input.get_axis("move_left", "move_right")
@@ -25,7 +27,7 @@ func _physics_process(delta):
 	jump_input(delta)
 	dash_input(delta, input)
 		
-	move_and_slide()
+	move_and_slide()	
 
 func apply_gravity(delta):
 	if is_on_floor() or dash_float < 0:
@@ -43,10 +45,14 @@ func horizontal_input(delta, input):
 		acc *= 3
 	
 	velocity.x += acc * delta
-	velocity.x = lerp(velocity.x, 0.0, pow(0.5, horizontal_dumping * delta))	
+	velocity.x *= (1 - horizontal_dumping * delta)
 	
 	if abs(velocity.x) < 5:
 		velocity.x = 0
+	
+	$Mesh.scale.x = move_toward($Mesh.scale.x, 1.0, delta)
+	$Mesh.scale.y = move_toward($Mesh.scale.y, 1.0, delta)
+	
 	
 func jump_input(delta):
 	if is_on_floor():
@@ -57,7 +63,7 @@ func jump_input(delta):
 		
 	jumps_available -= 1
 	velocity.y = -jump_force
-	print_debug("jump")
+	$Mesh.scale = Vector2(0.7, 1.3)
 	
 func dash_input(delta, input):	
 	dash_cooldown = min(0, dash_cooldown + delta)
@@ -70,4 +76,4 @@ func dash_input(delta, input):
 	dash_cooldown = -0.5
 	velocity.x += last_input_sign * dash_force
 	velocity.y = 0
-	print_debug("dash")
+	$Mesh.scale = Vector2(1.3, 0.7)

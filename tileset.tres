@@ -7,4 +7,6 @@ resource_name = "Floor"
 scenes/1/scene = ExtResource("1_xrqr3")
 
 [resource]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetScenesCollectionSource_cp6nu")

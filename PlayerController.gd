@@ -36,6 +36,13 @@ func apply_gravity(delta):
 		
 func horizontal_input(delta, input):
 	var acc = input * max_horizontal_acc
+	
+	if sign(input) != sign(velocity.x):
+		acc *= 3
+		
+	if abs(velocity.x) < 30:
+		acc *= 3
+	
 	velocity.x += acc * delta
 	velocity.x = lerp(velocity.x, 0.0, pow(0.5, horizontal_dumping * delta))	
 	

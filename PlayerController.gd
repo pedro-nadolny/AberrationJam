@@ -14,7 +14,6 @@ var dash_float = 0
 var dash_force = 700
 var last_input_sign = 1
 
-
 func _physics_process(delta):
 	var input = Input.get_axis("move_left", "move_right")
 	
@@ -27,6 +26,8 @@ func _physics_process(delta):
 	dash_input(delta, input)
 		
 	move_and_slide()	
+	%TileMap.position.x -= position.x
+	position.x = 0
 
 func apply_gravity(delta):
 	if is_on_floor() or dash_float < 0:

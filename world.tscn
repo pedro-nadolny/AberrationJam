@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bmaikof36p44j"]
+[gd_scene load_steps=14 format=3 uid="uid://bmaikof36p44j"]
 
 [ext_resource type="TileSet" uid="uid://dj8awjla8uvwg" path="res://tileset.tres" id="1_0yxgv"]
 [ext_resource type="Script" path="res://PlayerController.gd" id="2_5q5vt"]
 [ext_resource type="Script" path="res://Camera.gd" id="3_ieidc"]
+[ext_resource type="AudioStream" uid="uid://ds31a72ic0b4h" path="res://thunderstorm-loop-50418.mp3" id="4_q6upc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pncj4"]
 radius = 16.0
@@ -16,11 +17,6 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_imqsd"]
 gradient = SubResource("Gradient_xx4qf")
-
-[sub_resource type="Gradient" id="Gradient_x1jgj"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_txgpn"]
-gradient = SubResource("Gradient_x1jgj")
 
 [sub_resource type="Curve" id="Curve_0mmyc"]
 max_value = 0.5
@@ -59,8 +55,7 @@ linear_accel_max = 1000.0
 scale_min = 2.0
 scale_max = 2.0
 scale_curve = SubResource("CurveXYZTexture_n2jug")
-color = Color(0, 0, 0, 0.470588)
-color_ramp = SubResource("GradientTexture1D_txgpn")
+color = Color(0, 0, 0, 0.156863)
 turbulence_noise_strength = 0.05
 turbulence_noise_scale = 0.05
 turbulence_noise_speed = Vector3(-1, 1, 2.08165e-12)
@@ -105,3 +100,11 @@ interp_to_end = 1.0
 trail_lifetime = 0.01
 trail_sections = 2
 trail_section_subdivisions = 1
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Camera"]
+position = Vector2(-576, -325)
+current = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera"]
+stream = ExtResource("4_q6upc")
+autoplay = true

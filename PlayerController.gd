@@ -79,4 +79,4 @@ func dash_input(delta, input):
 	velocity.x += last_input_sign * dash_force
 	velocity.y = 0
 	$Mesh.scale = Vector2(1.7, 0.4)
-	$Mesh.position = Vector2(30, 4)
+	$Mesh.position = Vector2(last_input_sign * 30, 4)

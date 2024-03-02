@@ -51,9 +51,8 @@ func horizontal_input(delta, input):
 	
 	$Mesh.scale.x = move_toward($Mesh.scale.x, 1, delta * 5)
 	$Mesh.scale.y = move_toward($Mesh.scale.y, 1, delta * 5)
-	$Mesh.position.x = move_toward($Mesh.position.x, 0, delta * 50)
+	$Mesh.position.x = move_toward($Mesh.position.x, 0, delta * 100)
 	$Mesh.position.y = move_toward($Mesh.position.y, 0, delta * 50)
-	
 	
 func jump_input(delta):
 	if is_on_floor():

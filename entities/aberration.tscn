@@ -1,0 +1,154 @@
+[gd_scene load_steps=28 format=3 uid="uid://cf5kxxa6r7lkx"]
+
+[ext_resource type="Texture2D" uid="uid://835v8pidoeap" path="res://assets/animation/aberration/Aberration0001.png" id="1_fier3"]
+[ext_resource type="Texture2D" uid="uid://donqrosjsmn6r" path="res://assets/animation/aberration/Aberration0002.png" id="2_dp1e1"]
+[ext_resource type="Texture2D" uid="uid://wo08tuclqdc3" path="res://assets/animation/aberration/Aberration0003.png" id="3_wyp2s"]
+[ext_resource type="Texture2D" uid="uid://6evsp3tqc0hy" path="res://assets/animation/aberration/Aberration0004.png" id="4_w26bb"]
+[ext_resource type="Texture2D" uid="uid://dnd0b3jaw5ya3" path="res://assets/animation/aberration/Aberration0005.png" id="5_ej3jd"]
+[ext_resource type="Texture2D" uid="uid://yihfb6713xy1" path="res://assets/animation/aberration/Aberration0006.png" id="6_8fusj"]
+[ext_resource type="Texture2D" uid="uid://cbinqb1yjs0jw" path="res://assets/animation/aberration/Aberration0007.png" id="7_vtefw"]
+[ext_resource type="Texture2D" uid="uid://bb1kuadljvmhi" path="res://assets/animation/aberration/Aberration0008.png" id="8_ap711"]
+[ext_resource type="Texture2D" uid="uid://b3ejk0q4cg5da" path="res://assets/animation/aberration/Aberration0009.png" id="9_aa5a1"]
+[ext_resource type="Texture2D" uid="uid://bgpnhq334caq8" path="res://assets/animation/aberration/Aberration0010.png" id="10_nvwih"]
+[ext_resource type="Texture2D" uid="uid://coywclq44b7lm" path="res://assets/animation/aberration/Aberration0011.png" id="11_v7v4g"]
+[ext_resource type="Texture2D" uid="uid://c34e2o7ee4qnf" path="res://assets/animation/aberration/Aberration0012.png" id="12_7esju"]
+[ext_resource type="Texture2D" uid="uid://w5mq075l8w6" path="res://assets/animation/aberration/Aberration0013.png" id="13_7hpo6"]
+[ext_resource type="Texture2D" uid="uid://bcys8pouf1ok1" path="res://assets/animation/aberration/Aberration0014.png" id="14_7ldck"]
+[ext_resource type="Texture2D" uid="uid://bstdbboiqhtbk" path="res://assets/animation/aberration/Aberration0015.png" id="15_evy5v"]
+[ext_resource type="Texture2D" uid="uid://l1h3e3mqsxv1" path="res://assets/animation/aberration/Aberration0016.png" id="16_xtaib"]
+[ext_resource type="Texture2D" uid="uid://dd2t5a30cyeiq" path="res://assets/animation/aberration/Aberration0017.png" id="17_mg2iw"]
+[ext_resource type="Texture2D" uid="uid://1ky7uin3lq6" path="res://assets/animation/aberration/Aberration0018.png" id="18_5dqn3"]
+[ext_resource type="Texture2D" uid="uid://cyjns0rsxw3eo" path="res://assets/animation/aberration/Aberration0019.png" id="19_1sxi2"]
+[ext_resource type="Texture2D" uid="uid://bm0s2rs0igi0n" path="res://assets/animation/aberration/Aberration0020.png" id="20_qw8ls"]
+[ext_resource type="Texture2D" uid="uid://cmaplhjoqefnh" path="res://assets/animation/aberration/Aberration0021.png" id="21_k76t3"]
+[ext_resource type="Texture2D" uid="uid://dx42gpk3wwe8d" path="res://assets/animation/aberration/Aberration0022.png" id="22_nlx4m"]
+[ext_resource type="Texture2D" uid="uid://5jqjpqru357c" path="res://assets/animation/aberration/Aberration0023.png" id="23_wioci"]
+[ext_resource type="Texture2D" uid="uid://bgugbaxc0w81f" path="res://assets/animation/aberration/Aberration0024.png" id="24_6aof0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yrkp2"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fier3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dp1e1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wyp2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w26bb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ej3jd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8fusj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vtefw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ap711")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_aa5a1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nvwih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_v7v4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7esju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_7hpo6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_7ldck")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_evy5v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_xtaib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_mg2iw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_5dqn3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_1sxi2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_qw8ls")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_k76t3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_nlx4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_wioci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_6aof0")
+}],
+"loop": true,
+"name": &"aberration",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbsbr"]
+size = Vector2(31, 30.75)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_042j3"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(2.08165e-12, -50, 2.08165e-12)
+emission_shape_scale = Vector3(16, 16, 16)
+emission_shape = 2
+emission_sphere_radius = 1.0
+angle_min = -90.0
+angle_max = 90.0
+angular_velocity_min = -1000.0
+angular_velocity_max = 200.0
+orbit_velocity_min = 4.16334e-17
+orbit_velocity_max = 4.16334e-17
+radial_velocity_min = -1.0
+radial_velocity_max = 1.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+radial_accel_min = 2.08167e-15
+radial_accel_max = 2.08167e-15
+scale_max = 3.0
+color = Color(0, 0, 0, 1)
+
+[node name="Aberration" type="StaticBody2D"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.16, 0.16)
+sprite_frames = SubResource("SpriteFrames_yrkp2")
+animation = &"aberration"
+autoplay = "aberration"
+frame_progress = 0.339088
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_jbsbr")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_042j3")
+preprocess = 1.0
+fixed_fps = 24
+interpolate = false
+trail_enabled = true
+trail_lifetime = 0.1

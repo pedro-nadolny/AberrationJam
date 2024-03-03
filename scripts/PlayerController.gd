@@ -27,9 +27,7 @@ func _physics_process(delta):
 	
 	
 		
-	move_and_slide()	
-	%TileMap.position.x -= position.x
-	position.x = 0
+	move_and_slide()
 
 func apply_gravity(delta):
 	if is_on_floor() or dash_float < 0:

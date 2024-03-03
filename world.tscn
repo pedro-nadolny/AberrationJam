@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://bmaikof36p44j"]
+[gd_scene load_steps=16 format=3 uid="uid://bmaikof36p44j"]
 
-[ext_resource type="TileSet" uid="uid://dj8awjla8uvwg" path="res://tileset.tres" id="1_0yxgv"]
-[ext_resource type="Script" path="res://PlayerController.gd" id="2_5q5vt"]
-[ext_resource type="Script" path="res://Camera.gd" id="3_ieidc"]
-[ext_resource type="AudioStream" uid="uid://ds31a72ic0b4h" path="res://thunderstorm-loop-50418.mp3" id="4_q6upc"]
+[ext_resource type="TileSet" uid="uid://dj8awjla8uvwg" path="res://tiles/tileset.tres" id="1_0yxgv"]
+[ext_resource type="Script" path="res://scripts/PlayerController.gd" id="2_5q5vt"]
+[ext_resource type="Script" path="res://scripts/Camera.gd" id="3_ieidc"]
+[ext_resource type="AudioStream" uid="uid://ck5gdi6cyp7vr" path="res://assets/music/177479__unfa__slowly-raining-loop.mp3" id="4_rhi4q"]
+[ext_resource type="Script" path="res://scripts/Spawn.gd" id="5_04bs8"]
+[ext_resource type="Script" path="res://scripts/Limit.gd" id="6_5301w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pncj4"]
 radius = 16.0
@@ -52,10 +54,8 @@ initial_velocity_max = 500.0
 gravity = Vector3(-30, 98, 2.08165e-12)
 linear_accel_min = 1000.0
 linear_accel_max = 1000.0
-scale_min = 2.0
-scale_max = 2.0
 scale_curve = SubResource("CurveXYZTexture_n2jug")
-color = Color(0, 0, 0, 0.156863)
+color = Color(0, 0, 0, 1)
 turbulence_noise_strength = 0.05
 turbulence_noise_scale = 0.05
 turbulence_noise_speed = Vector3(-1, 1, 2.08165e-12)
@@ -86,12 +86,12 @@ mesh = SubResource("SphereMesh_njjat")
 texture = SubResource("GradientTexture1D_imqsd")
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(576, 325)
+position = Vector2(2.08165e-12, 325)
 script = ExtResource("3_ieidc")
 
 [node name="Rain" type="GPUParticles2D" parent="Camera"]
 position = Vector2(150, -400)
-amount = 250
+amount = 200
 process_material = SubResource("ParticleProcessMaterial_liko7")
 lifetime = 0.75
 preprocess = 0.5
@@ -106,5 +106,14 @@ position = Vector2(-576, -325)
 current = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera"]
-stream = ExtResource("4_q6upc")
+stream = ExtResource("4_rhi4q")
 autoplay = true
+
+[node name="Spawn" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(74, 100)
+script = ExtResource("5_04bs8")
+
+[node name="Limit" type="Node2D" parent="."]
+position = Vector2(2.08165e-12, 700)
+script = ExtResource("6_5301w")

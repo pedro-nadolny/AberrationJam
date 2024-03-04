@@ -18,6 +18,15 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "green",
+"res://entities/": "orange",
+"res://scripts/": "blue",
+"res://tiles/": "teal"
+}
+
 [input]
 
 jump={

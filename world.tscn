@@ -96,6 +96,8 @@ position = Vector2(2.08165e-12, 700)
 script = ExtResource("6_5301w")
 
 [node name="Aberration" parent="." instance=ExtResource("5_bcgu2")]
+texture_repeat = 2
+position = Vector2(100, 100)
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(2.08165e-12, 325)
@@ -119,4 +121,5 @@ current = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera"]
 stream = ExtResource("4_rhi4q")
+volume_db = 24.0
 autoplay = true

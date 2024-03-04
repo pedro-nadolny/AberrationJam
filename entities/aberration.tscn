@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cf5kxxa6r7lkx"]
+[gd_scene load_steps=30 format=3 uid="uid://cf5kxxa6r7lkx"]
 
 [ext_resource type="Texture2D" uid="uid://835v8pidoeap" path="res://assets/animation/aberration/Aberration0001.png" id="1_fier3"]
 [ext_resource type="Texture2D" uid="uid://donqrosjsmn6r" path="res://assets/animation/aberration/Aberration0002.png" id="2_dp1e1"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://dx42gpk3wwe8d" path="res://assets/animation/aberration/Aberration0022.png" id="22_nlx4m"]
 [ext_resource type="Texture2D" uid="uid://5jqjpqru357c" path="res://assets/animation/aberration/Aberration0023.png" id="23_wioci"]
 [ext_resource type="Texture2D" uid="uid://bgugbaxc0w81f" path="res://assets/animation/aberration/Aberration0024.png" id="24_6aof0"]
+[ext_resource type="Texture2D" uid="uid://dd4nl7qhwo31q" path="res://assets/images/circle.png" id="25_lw17v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yrkp2"]
 resource_local_to_scene = true
@@ -109,35 +110,43 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jbsbr"]
 size = Vector2(31, 30.75)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rjv2u"]
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_042j3"]
 particle_flag_disable_z = true
-emission_shape_offset = Vector3(2.08165e-12, -50, 2.08165e-12)
-emission_shape_scale = Vector3(16, 16, 16)
+emission_shape_offset = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+emission_shape_scale = Vector3(8, 8, 8)
 emission_shape = 2
-emission_sphere_radius = 1.0
+emission_sphere_radius = 5.0
 angle_min = -90.0
 angle_max = 90.0
 angular_velocity_min = -1000.0
-angular_velocity_max = 200.0
-orbit_velocity_min = 4.16334e-17
-orbit_velocity_max = 4.16334e-17
-radial_velocity_min = -1.0
-radial_velocity_max = 1.0
+angular_velocity_max = 1000.0
+orbit_velocity_min = -3.0
+orbit_velocity_max = 3.0
+radial_velocity_min = 2.08167e-14
+radial_velocity_max = 2.08167e-14
 gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
-radial_accel_min = 2.08167e-15
-radial_accel_max = 2.08167e-15
-scale_max = 3.0
-color = Color(0, 0, 0, 1)
+radial_accel_min = -50.0
+radial_accel_max = 50.0
+tangential_accel_min = -50.0
+tangential_accel_max = 50.0
+attractor_interaction_enabled = false
+scale_min = 0.25
+scale_max = 0.4
+turbulence_enabled = true
+turbulence_noise_speed_random = 1.0
+turbulence_influence_max = 0.3
 
 [node name="Aberration" type="StaticBody2D"]
 position = Vector2(2.08165e-12, 2.08165e-12)
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.16, 0.16)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_yrkp2")
 animation = &"aberration"
 autoplay = "aberration"
-frame_progress = 0.339088
+frame_progress = 0.705887
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -145,10 +154,13 @@ shape = SubResource("RectangleShape2D_jbsbr")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-amount = 10
+material = SubResource("CanvasItemMaterial_rjv2u")
+amount = 12
 process_material = SubResource("ParticleProcessMaterial_042j3")
-preprocess = 1.0
+texture = ExtResource("25_lw17v")
+lifetime = 2.0
+preprocess = 2.0
 fixed_fps = 24
 interpolate = false
-trail_enabled = true
+local_coords = true
 trail_lifetime = 0.1

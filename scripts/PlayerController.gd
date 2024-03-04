@@ -25,8 +25,6 @@ func _physics_process(delta):
 	jump_input()
 	dash_input(delta)
 	
-	
-		
 	move_and_slide()
 
 func apply_gravity(delta):
@@ -52,7 +50,7 @@ func horizontal_input(delta, input):
 	
 	$Mesh.scale.x = move_toward($Mesh.scale.x, 1, delta * 5)
 	$Mesh.scale.y = move_toward($Mesh.scale.y, 1, delta * 5)
-	$Mesh.position.x = move_toward($Mesh.position.x, 0, delta * 200)
+	$Mesh.position.x = move_toward($Mesh.position.x, 0, delta * 100)
 	$Mesh.position.y = move_toward($Mesh.position.y, 0, delta * 50)
 	
 func jump_input():

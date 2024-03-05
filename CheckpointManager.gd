@@ -8,4 +8,5 @@ func checkpoint_entered(checkpoint):
 	if last_checkpoint > checkpoint_id:
 		return
 		
+	last_checkpoint = checkpoint_id
 	%Spawn.position = checkpoint.position

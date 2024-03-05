@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-const gravity = 1500
-const max_horizontal_acc = 1000
+const gravity = 750
+const max_horizontal_acc = 500
 const horizontal_dumping = 1.5
-const min_speed = 10
-const jump_force = 600
+const min_speed = 5
+const jump_force = 300
 const max_jumps = 2
-const dash_force = 700
+const dash_force = 400
 
 var jumps_available = 0
 var dash_cooldown = 0

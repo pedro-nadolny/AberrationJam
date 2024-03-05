@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scripts/Spawn.gd" id="5_04bs8"]
 [ext_resource type="PackedScene" uid="uid://cf5kxxa6r7lkx" path="res://entities/aberration.tscn" id="5_bcgu2"]
 [ext_resource type="Script" path="res://scripts/Limit.gd" id="6_5301w"]
-[ext_resource type="Script" path="res://Wrongway.gd" id="8_s8wq7"]
+[ext_resource type="Script" path="res://scripts/Wrongway.gd" id="8_s8wq7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pncj4"]
 radius = 16.0
@@ -62,7 +62,7 @@ turbulence_noise_strength = 0.05
 turbulence_noise_scale = 0.05
 turbulence_noise_speed = Vector3(-1, 1, 2.08165e-12)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_paign"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_f2n6i"]
 viewport_path = NodePath("WrongWay/SubViewport")
 
 [node name="World" type="Node2D"]
@@ -131,7 +131,7 @@ autoplay = true
 [node name="WrongWay" type="Sprite2D" parent="."]
 position = Vector2(-2000, 80)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_paign")
+texture = SubResource("ViewportTexture_f2n6i")
 script = ExtResource("8_s8wq7")
 
 [node name="SubViewport" type="SubViewport" parent="WrongWay"]

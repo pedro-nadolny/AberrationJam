@@ -5,13 +5,12 @@ const max_horizontal_acc = 1000
 const horizontal_dumping = 1.5
 const min_speed = 10
 const jump_force = 600
+const max_jumps = 2
+const dash_force = 700
 
-var max_jumps = 2
 var jumps_available = 0
-
 var dash_cooldown = 0
 var dash_float = 0
-var dash_force = 700
 var last_input_sign = 1
 
 func _physics_process(delta):

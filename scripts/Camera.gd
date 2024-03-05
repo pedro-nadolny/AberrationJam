@@ -1,4 +1,4 @@
 extends Camera2D
 
-func _process(delta):
+func _process(_delta):
 	position.x = %Player.position.x

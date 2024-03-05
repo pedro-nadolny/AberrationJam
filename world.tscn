@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmaikof36p44j"]
+[gd_scene load_steps=19 format=3 uid="uid://bmaikof36p44j"]
 
 [ext_resource type="TileSet" uid="uid://dj8awjla8uvwg" path="res://tiles/tileset.tres" id="1_0yxgv"]
 [ext_resource type="Script" path="res://scripts/PlayerController.gd" id="2_5q5vt"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/Spawn.gd" id="5_04bs8"]
 [ext_resource type="PackedScene" uid="uid://cf5kxxa6r7lkx" path="res://entities/aberration.tscn" id="5_bcgu2"]
 [ext_resource type="Script" path="res://scripts/Limit.gd" id="6_5301w"]
+[ext_resource type="Script" path="res://Wrongway.gd" id="8_s8wq7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pncj4"]
 radius = 16.0
@@ -60,6 +61,9 @@ color = Color(0, 0, 0, 1)
 turbulence_noise_strength = 0.05
 turbulence_noise_scale = 0.05
 turbulence_noise_speed = Vector3(-1, 1, 2.08165e-12)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_paign"]
+viewport_path = NodePath("WrongWay/SubViewport")
 
 [node name="World" type="Node2D"]
 
@@ -123,3 +127,18 @@ current = true
 stream = ExtResource("4_rhi4q")
 volume_db = 24.0
 autoplay = true
+
+[node name="WrongWay" type="Sprite2D" parent="."]
+position = Vector2(-2000, 80)
+scale = Vector2(2, 2)
+texture = SubResource("ViewportTexture_paign")
+script = ExtResource("8_s8wq7")
+
+[node name="SubViewport" type="SubViewport" parent="WrongWay"]
+handle_input_locally = false
+size = Vector2i(200, 50)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="WrongWay/SubViewport"]
+offset_right = 184.0
+offset_bottom = 46.0
+text = "Mario suggests going to the right"

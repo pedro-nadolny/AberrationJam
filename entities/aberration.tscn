@@ -146,7 +146,8 @@ scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_yrkp2")
 animation = &"aberration"
 autoplay = "aberration"
-frame_progress = 0.705887
+frame = 15
+frame_progress = 0.455191
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

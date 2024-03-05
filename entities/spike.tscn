@@ -1,6 +1,14 @@
-[gd_scene format=3 uid="uid://c6qyageo8tape"]
+[gd_scene load_steps=2 format=3 uid="uid://c6qyageo8tape"]
+
+[sub_resource type="GDScript" id="GDScript_xochi"]
+script/source = "extends StaticBody2D
+
+func _physics_process(delta):
+	
+"
 
 [node name="Spike" type="StaticBody2D"]
+script = SubResource("GDScript_xochi")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)

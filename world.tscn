@@ -155,9 +155,9 @@ position = Vector2(1120, 48)
 scale = Vector2(2, 3)
 
 [node name="Checkpoint2" parent="CheckpointManager" instance=ExtResource("10_534gt")]
-position = Vector2(2144, 432)
+position = Vector2(1600, 432)
 scale = Vector2(2, 3)
 
 [node name="Checkpoint3" parent="CheckpointManager" instance=ExtResource("10_534gt")]
-position = Vector2(1600, 432)
+position = Vector2(2144, 432)
 scale = Vector2(2, 3)

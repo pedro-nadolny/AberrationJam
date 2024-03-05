@@ -5,4 +5,3 @@ func _on_checkpoint_body_entered(body):
 		return
 		
 	%CheckpointManager.checkpoint_entered(self)
-	queue_free()

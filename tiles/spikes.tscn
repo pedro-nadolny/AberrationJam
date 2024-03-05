@@ -3,6 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://c6qyageo8tape" path="res://entities/spike.tscn" id="1_t0ht4"]
 
 [node name="Spikes" type="Node2D"]
+scale = Vector2(32, 32)
 
 [node name="Spike2" parent="." instance=ExtResource("1_t0ht4")]
-position = Vector2(2728, 2892)
+position = Vector2(0.333, 2.08165e-12)
+scale = Vector2(0.333, 0.333)
+
+[node name="Spike3" parent="." instance=ExtResource("1_t0ht4")]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.333, 0.333)
+
+[node name="Spike4" parent="." instance=ExtResource("1_t0ht4")]
+position = Vector2(-0.333, 2.08165e-12)
+scale = Vector2(0.333, 0.333)

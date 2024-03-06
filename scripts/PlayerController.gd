@@ -47,10 +47,8 @@ func horizontal_input(delta, input):
 	if abs(velocity.x) < 5:
 		velocity.x = 0
 	
-	$Mesh.scale.x = move_toward($Mesh.scale.x, 1, delta * 5)
-	$Mesh.scale.y = move_toward($Mesh.scale.y, 1, delta * 5)
-	$Mesh.position.x = move_toward($Mesh.position.x, 0, delta * 100)
-	$Mesh.position.y = move_toward($Mesh.position.y, 0, delta * 50)
+	$Sprite2D.scale.x = move_toward($Sprite2D.scale.x, 1, delta * 2.5)
+	$Sprite2D.scale.y = move_toward($Sprite2D.scale.y, 1, delta * 2.5)
 	
 func jump_input():
 	if is_on_floor():
@@ -61,8 +59,7 @@ func jump_input():
 		 
 	jumps_available -= 1
 	velocity.y = -jump_force
-	$Mesh.scale = Vector2(0.7, 1.3)
-	$Mesh.position = Vector2(0, -15)
+	$Sprite2D.scale = Vector2(0.7, 1.3)
 	
 func dash_input(delta):	
 	dash_cooldown = min(0, dash_cooldown + delta)
@@ -75,5 +72,3 @@ func dash_input(delta):
 	dash_cooldown = -0.5
 	velocity.x += last_input_sign * dash_force
 	velocity.y = 0
-	$Mesh.scale = Vector2(1.7, 0.4)
-	$Mesh.position = Vector2(last_input_sign * 40, 4)

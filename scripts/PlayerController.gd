@@ -2,11 +2,12 @@ extends CharacterBody2D
 
 const gravity = 750
 const max_horizontal_acc = 500
-const horizontal_dumping = 1.5
+const horizontal_dumping = 1.75
 const min_speed = 5
 const jump_force = 300
 const max_jumps = 2
 const dash_force = 400
+const max_y_speed = 1000
 
 var jumps_available = 0
 var dash_cooldown = 0
@@ -25,12 +26,15 @@ func _physics_process(delta):
 	dash_input(delta)
 	
 	move_and_slide()
+	
+	%Sprite2D.update_animations(last_input_sign, is_zero_approx(input), is_zero_approx(velocity.x), is_on_floor())
 
 func apply_gravity(delta):
 	if is_on_floor() or dash_float < 0:
 		return
 	
 	velocity.y += gravity * delta
+	velocity.y = min(velocity.y, max_y_speed)
 		
 func horizontal_input(delta, input):
 	var acc = input * max_horizontal_acc
@@ -47,8 +51,8 @@ func horizontal_input(delta, input):
 	if abs(velocity.x) < 5:
 		velocity.x = 0
 	
-	$Sprite2D.scale.x = move_toward($Sprite2D.scale.x, 1, delta * 2.5)
-	$Sprite2D.scale.y = move_toward($Sprite2D.scale.y, 1, delta * 2.5)
+	$Sprite2D.scale.x = move_toward($Sprite2D.scale.x, 1, delta * 50)
+	$Sprite2D.scale.y = move_toward($Sprite2D.scale.y, 1, delta * 50)
 	
 func jump_input():
 	if is_on_floor():

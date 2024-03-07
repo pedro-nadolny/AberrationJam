@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cf5kxxa6r7lkx" path="res://entities/aberration.tscn" id="5_bcgu2"]
 [ext_resource type="Script" path="res://scripts/Limit.gd" id="6_5301w"]
 [ext_resource type="Script" path="res://scripts/Wrongway.gd" id="8_s8wq7"]
-[ext_resource type="Script" path="res://CheckpointManager.gd" id="9_41ajb"]
+[ext_resource type="Script" path="res://scripts/CheckpointManager.gd" id="9_41ajb"]
 [ext_resource type="PackedScene" uid="uid://cl7e2tvbvm7cy" path="res://entities/checkpoint.tscn" id="10_534gt"]
 
 [sub_resource type="Curve" id="Curve_0mmyc"]
@@ -51,7 +51,7 @@ turbulence_noise_strength = 0.05
 turbulence_noise_scale = 0.05
 turbulence_noise_speed = Vector3(-1, 1, 2.08165e-12)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4yekf"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_fp6fa"]
 viewport_path = NodePath("WrongWay/SubViewport")
 
 [node name="World" type="Node2D"]
@@ -114,7 +114,7 @@ volume_db = 24.0
 [node name="WrongWay" type="Sprite2D" parent="."]
 position = Vector2(-2000, 80)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_4yekf")
+texture = SubResource("ViewportTexture_fp6fa")
 script = ExtResource("8_s8wq7")
 
 [node name="SubViewport" type="SubViewport" parent="WrongWay"]

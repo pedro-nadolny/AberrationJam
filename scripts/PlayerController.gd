@@ -3,6 +3,7 @@ extends CharacterBody2D
 const gravity = 750
 const max_horizontal_acc = 500
 const horizontal_dumping = 1.75
+const dumping_multiplier_without_input = 3
 const min_speed = 5
 const jump_force = 300
 const max_jumps = 2
@@ -13,9 +14,10 @@ var jumps_available = 0
 var dash_cooldown = 0
 var dash_float = 0
 var last_input_sign = 1
+var input = 0
 
 func _physics_process(delta):
-	var input = Input.get_axis("move_left", "move_right")
+	input = Input.get_axis("move_left", "move_right")
 	
 	if not is_zero_approx(input):
 		last_input_sign = sign(input)
@@ -24,10 +26,16 @@ func _physics_process(delta):
 	horizontal_input(delta, input)
 	jump_input()
 	dash_input(delta)
-	
 	move_and_slide()
 	
-	%Sprite2D.update_animations(last_input_sign, is_zero_approx(input), is_zero_approx(velocity.x), is_on_floor())
+	%Sprite2D.update_animations(
+		last_input_sign, 
+		is_zero_approx(input), 
+		is_zero_approx(velocity.x), 
+		is_on_floor(), 
+		is_on_wall(), 
+		dash_float < 0
+	)
 
 func apply_gravity(delta):
 	if is_on_floor() or dash_float < 0:
@@ -46,12 +54,18 @@ func horizontal_input(delta, input):
 		acc *= 3
 	
 	velocity.x += acc * delta
-	velocity.x *= (1 - horizontal_dumping * delta)
+	
+	var dumping_amount = horizontal_dumping * delta
+	
+	if is_zero_approx(input):
+		dumping_amount *= dumping_multiplier_without_input
+
+	velocity.x *= 1 - dumping_amount
 	
 	if abs(velocity.x) < 5:
 		velocity.x = 0
 	
-	$Sprite2D.scale.x = move_toward($Sprite2D.scale.x, 1, delta * 50)
+	$Sprite2D.scale.x = move_toward($Sprite2D.scale.x, last_input_sign, delta * 50)
 	$Sprite2D.scale.y = move_toward($Sprite2D.scale.y, 1, delta * 50)
 	
 func jump_input():

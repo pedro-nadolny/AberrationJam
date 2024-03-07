@@ -1,15 +1,14 @@
-[gd_scene load_steps=23 format=3 uid="uid://b3c2h3ixjx8jq"]
+[gd_scene load_steps=31 format=3 uid="uid://b3c2h3ixjx8jq"]
 
 [ext_resource type="Script" path="res://scripts/PlayerController.gd" id="1_36dkf"]
-[ext_resource type="Script" path="res://entities/player_animations.gd" id="2_0rgs3"]
 [ext_resource type="Texture2D" uid="uid://fkix51oe02ww" path="res://assets/images/character/idle.png" id="2_mbu8h"]
 [ext_resource type="Texture2D" uid="uid://c50cq4f80djh5" path="res://assets/images/character/run.png" id="2_va1oq"]
+[ext_resource type="Script" path="res://scripts/player_animations.gd" id="4_4dwwb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7x1tl"]
 size = Vector2(6, 10)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t1bna"]
-load_path = "res://.godot/imported/default.png-fb323d5dd88b0dfcf9082cc767deb2c7.ctex"
 
 [sub_resource type="Animation" id="Animation_q2l3g"]
 length = 0.001
@@ -48,6 +47,46 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_63t5o"]
+resource_name = "dashing"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_va1oq")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
 }
 
 [sub_resource type="Animation" id="Animation_p2p60"]
@@ -125,7 +164,7 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -175,10 +214,14 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4dy64"]
 _data = {
 "RESET": SubResource("Animation_q2l3g"),
+"dashing": SubResource("Animation_63t5o"),
 "default": SubResource("Animation_p2p60"),
 "idle": SubResource("Animation_hcb3x"),
 "run": SubResource("Animation_jrw67")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1x3uy"]
+animation = &"dashing"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4jwcm"]
 animation = &"default"
@@ -194,7 +237,7 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0hlx4"]
 advance_mode = 2
-advance_condition = &"moving"
+advance_condition = &"run"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lucai"]
 advance_mode = 2
@@ -210,23 +253,49 @@ advance_condition = &"default"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rmqld"]
 advance_mode = 2
-advance_condition = &"moving"
+advance_condition = &"run"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vn71u"]
 advance_mode = 2
 advance_condition = &"default"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1lhw5"]
+advance_mode = 2
+advance_condition = &"dashing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cnf35"]
+advance_mode = 2
+advance_condition = &"dashing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_by2pm"]
+advance_mode = 2
+advance_condition = &"dashing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u1esa"]
+advance_mode = 2
+advance_condition = &"run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8uxr1"]
+advance_mode = 2
+advance_condition = &"default"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hmxav"]
+advance_mode = 2
+advance_condition = &"idle"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_vrkp8"]
 states/End/position = Vector2(766, 99.625)
 states/Start/position = Vector2(229.5, 99.686)
+states/dashing/node = SubResource("AnimationNodeAnimation_1x3uy")
+states/dashing/position = Vector2(557.686, 210.711)
 states/default/node = SubResource("AnimationNodeAnimation_4jwcm")
-states/default/position = Vector2(467.646, 202.36)
+states/default/position = Vector2(374.536, 210.761)
 states/idle/node = SubResource("AnimationNodeAnimation_sw0eg")
-states/idle/position = Vector2(374.5, 99.7471)
+states/idle/position = Vector2(374.532, 99.6555)
 states/run/node = SubResource("AnimationNodeAnimation_flkf7")
-states/run/position = Vector2(558.5, 99.5312)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_y4ikt"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_0hlx4"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_lucai"), "default", "idle", SubResource("AnimationNodeStateMachineTransition_282b1"), "idle", "default", SubResource("AnimationNodeStateMachineTransition_hcf45"), "default", "run", SubResource("AnimationNodeStateMachineTransition_rmqld"), "run", "default", SubResource("AnimationNodeStateMachineTransition_vn71u")]
-graph_offset = Vector2(37.8286, 16.9624)
+states/run/position = Vector2(557.957, 99.5781)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_y4ikt"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_0hlx4"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_lucai"), "default", "idle", SubResource("AnimationNodeStateMachineTransition_282b1"), "idle", "default", SubResource("AnimationNodeStateMachineTransition_hcf45"), "default", "run", SubResource("AnimationNodeStateMachineTransition_rmqld"), "run", "default", SubResource("AnimationNodeStateMachineTransition_vn71u"), "default", "dashing", SubResource("AnimationNodeStateMachineTransition_1lhw5"), "idle", "dashing", SubResource("AnimationNodeStateMachineTransition_cnf35"), "run", "dashing", SubResource("AnimationNodeStateMachineTransition_by2pm"), "dashing", "run", SubResource("AnimationNodeStateMachineTransition_u1esa"), "dashing", "default", SubResource("AnimationNodeStateMachineTransition_8uxr1"), "dashing", "idle", SubResource("AnimationNodeStateMachineTransition_hmxav")]
+graph_offset = Vector2(122.923, 29.1871)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(2.08165e-12, 2.08165e-12)
@@ -249,15 +318,16 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_vrkp8")
 anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/dashing = false
 parameters/conditions/default = true
 parameters/conditions/idle = false
-parameters/conditions/moving = false
+parameters/conditions/run = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 texture_filter = 1
-position = Vector2(-1, 0)
+position = Vector2(-1, -2.08165e-12)
 texture = SubResource("CompressedTexture2D_t1bna")
 hframes = 2
 frame = 1
-script = ExtResource("2_0rgs3")
+script = ExtResource("4_4dwwb")

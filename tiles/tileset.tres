@@ -1,12 +1,14 @@
-[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://dj8awjla8uvwg"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://dj8awjla8uvwg"]
 
 [ext_resource type="PackedScene" uid="uid://dhv3vvxyjwxju" path="res://tiles/floor.tscn" id="1_br6j6"]
 [ext_resource type="PackedScene" uid="uid://tu0iem4rhfu2" path="res://tiles/background.tscn" id="2_oabw0"]
+[ext_resource type="PackedScene" uid="uid://ivi8pvagxadv" path="res://tiles/spikes.tscn" id="3_w216x"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_cp6nu"]
 resource_name = "Floor"
 scenes/1/scene = ExtResource("1_br6j6")
 scenes/2/scene = ExtResource("2_oabw0")
+scenes/3/scene = ExtResource("3_w216x")
 
 [resource]
 tile_size = Vector2i(32, 32)

@@ -8,3 +8,6 @@ func respawn():
 	%Player.jumps_available = 0
 	%Player.dash_cooldown = -1
 	%Player.position = position
+
+func _on_player_died():
+	respawn()

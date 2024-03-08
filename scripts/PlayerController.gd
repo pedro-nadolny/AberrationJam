@@ -19,6 +19,8 @@ var input = 0
 var jump_buffer = 0.0
 var was_on_floor = false
 
+signal died
+
 func _physics_process(delta):
 	input = Input.get_axis("move_left", "move_right")
 	
@@ -32,6 +34,11 @@ func _physics_process(delta):
 	
 	was_on_floor = is_on_floor()
 	move_and_slide()
+	
+	var collision := get_last_slide_collision()
+	
+	if collision:
+		collision(collision.get_collider())
 	
 	%Sprite2D.update_animations(
 		last_input_sign, 
@@ -105,3 +112,13 @@ func dash(delta):
 	dash_cooldown = 0.5
 	velocity.x += last_input_sign * dash_force
 	velocity.y = 0
+	
+func collision(collider):
+	if !collider.is_in_group("aberration"):
+		return
+		
+	if dash_float > 0:
+		collider.queue_free()
+		return
+		
+	died.emit()

@@ -137,7 +137,7 @@ turbulence_noise_speed_random = 1.0
 turbulence_influence_max = 0.3
 turbulence_initial_displacement_min = -100.0
 
-[node name="Aberration" type="StaticBody2D"]
+[node name="Aberration" type="StaticBody2D" groups=["aberration"]]
 position = Vector2(2.08165e-12, 2.08165e-12)
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
@@ -145,7 +145,7 @@ scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_yrkp2")
 animation = &"aberration"
 autoplay = "aberration"
-frame_progress = 0.160206
+frame_progress = 0.14246
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jbsbr")

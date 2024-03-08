@@ -9,7 +9,7 @@ const jump_force = 300
 const max_jumps = 2
 const dash_force = 400
 const max_y_speed = 1000
-const jump_buffer_time = 0.2
+const jump_buffer_time = 0.15
 
 var jumps_available = 0
 var dash_cooldown = 0
@@ -69,9 +69,6 @@ func walk(delta):
 	
 	if abs(velocity.x) < 5:
 		velocity.x = 0
-	
-	$Sprite2D.scale.x = last_input_sign
-	$Sprite2D.scale.y = move_toward($Sprite2D.scale.y, 1, delta * 50)
 	
 func jump(delta):	
 	jump_buffer = move_toward(jump_buffer, 0, delta)

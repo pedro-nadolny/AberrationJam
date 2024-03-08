@@ -26,7 +26,7 @@ func _physics_process(delta):
 	
 	if not is_zero_approx(input):
 		last_input_sign = sign(input)
-	
+	disable_mode
 	fall(delta)
 	walk(delta)
 	jump(delta)

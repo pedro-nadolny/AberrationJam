@@ -51,7 +51,7 @@ turbulence_noise_strength = 0.05
 turbulence_noise_scale = 0.05
 turbulence_noise_speed = Vector3(-1, 1, 2.08165e-12)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_mhh3k"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_s6oct"]
 viewport_path = NodePath("WrongWay/SubViewport")
 
 [node name="World" type="Node2D"]
@@ -110,7 +110,7 @@ volume_db = 24.0
 [node name="WrongWay" type="Sprite2D" parent="."]
 position = Vector2(-2000, 80)
 scale = Vector2(2, 2)
-texture = SubResource("ViewportTexture_mhh3k")
+texture = SubResource("ViewportTexture_s6oct")
 script = ExtResource("8_s8wq7")
 
 [node name="SubViewport" type="SubViewport" parent="WrongWay"]
